@@ -8,11 +8,11 @@
     "autoVerifiedAttributes": [
       "email"
     ],
-    "mfaConfiguration": "OFF",
+    "mfaConfiguration": "OPTIONAL",
     "mfaTypes": [
-      "SMS Text Message"
+      "TOTP"
     ],
-    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsAuthenticationMessage": "message {####}",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
@@ -25,21 +25,42 @@
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-      "email"
-    ],
-    "userpoolClientReadAttributes": [
-      "email"
-    ],
+    "userpoolClientWriteAttributes": [],
+    "userpoolClientReadAttributes": [],
     "userpoolClientLambdaRole": "amplif96e7451b_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "96e7451b",
     "resourceName": "amplifyapp96e7451b",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
+    "useDefault": "manual",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "thirdPartyAuth": false,
+    "authProviders": [],
+    "hostedUI": true,
+    "hostedUIDomainName": "lb3keew2c7yl",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://www.amplifynotes.shermanroman.com/\"],\"LogoutURLs\":[\"https://www.amplifynotes.shermanroman.com/\"]}"
   }
 }
